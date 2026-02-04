@@ -7,9 +7,10 @@ A full-featured web application for managing internship applications with separa
 ✨ **Features**
 
 👤 User Features
-User Registration & Login - Secure authentication with password hashing
 
-Internship Application Form - Apply for PHP Developer, Video Editor, or Mobile App Developer roles
+User Registration & Login - Secure authentication with password hashing.
+
+Internship Application Form - Apply for PHP Developer, Video Editor, or Mobile App Developer roles.
 
 My Applications - View personal application history and status
 
@@ -17,7 +18,8 @@ Daily Limit - Users can submit only one application per day
 
 Responsive Design - Mobile-friendly interface with Bootstrap 5
 
-👑 Admin Features
+👑 **Admin Features**
+
 Separate Admin Login - Dedicated login page for administrators
 
 Dashboard - Overview with statistics and quick actions
@@ -30,7 +32,8 @@ Application Status Control - Accept, reject, or mark applications as reviewed
 
 Advanced Filters - Filter by role, experience, status, and search by name/email
 
-🛡️ Security Features
+🛡️ **Security Features**
+
 Prepared Statements - Protection against SQL injection
 
 Password Hashing - Bcrypt password encryption
@@ -43,8 +46,8 @@ XSS Protection - Output escaping with htmlspecialchars()
 
 Access Control - Admin-only routes protected
 
-🗂️ Project Structure
-text
+🗂️** Project Structure**
+
 ```
 internship-portal/
 │
@@ -116,7 +119,8 @@ CREATE TABLE applications (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 ```
-🚀 Installation
+🚀 **Installation**
+
 Prerequisites
 PHP 7.4 or higher
 
@@ -127,6 +131,7 @@ Web server (Apache/Nginx) or PHP built-in server
 MySQL Workbench (for database management)
 
 Step 1: Database Setup
+
 Open MySQL Workbench
 
 Create a new SQL tab
@@ -136,6 +141,7 @@ Copy and execute the entire database.sql script
 Verify the database internship_portal is created
 
 Step 2: Configuration
+
 Edit config/database.php with your MySQL credentials:
 
 php
@@ -147,6 +153,7 @@ private $username = "root";
 private $password = ""; // Your MySQL password
 ```
 Step 3: File Placement
+
 Place all files in your web server directory:
 
 XAMPP: C:/xampp/htdocs/internship-portal/
@@ -158,7 +165,8 @@ MAMP: /Applications/MAMP/htdocs/internship-portal/
 Step 4: Run Setup Check
 Open in browser: http://localhost/internship-portal/setup.php
 
-🔑 Default Login Credentials
+🔑** Default Login Credentials**
+
 Admin Account
 Email: admin@example.com
 
@@ -171,7 +179,8 @@ User 2: jane@example.com / password123
 
 User 3: bob@example.com / password123
 
-📊 Admin Features Details
+📊 **Admin Features Details**
+
 Application Management
 Pagination: 5 records per page
 
@@ -219,7 +228,8 @@ $stmt->bindParam(":email", $email);
 $stmt->bindParam(":password", $hashed_password);
 $stmt->execute();
 ```
-🌐 Usage Guide
+🌐 **Usage Guide**
+
 As a Regular User
 Register for an account at /auth/register.php
 
@@ -298,7 +308,8 @@ Edge 79+
 
 Mobile browsers (responsive design)
 
-🔒 Security Best Practices Implemented
+🔒 **Security Best Practices Implemented**
+
 SQL Injection Prevention: All queries use prepared statements
 
 Password Security: Bcrypt hashing with cost factor 10
@@ -328,55 +339,6 @@ Review the troubleshooting section above
 Ensure all prerequisites are met
 
 Verify database connection settings
-
-🎯 Project Requirements Met
-✅ Mandatory Requirements
-Core PHP (No frameworks)
-
-MySQL database
-
-HTML/CSS with Bootstrap
-
-PDO with prepared statements
-
-Session handling
-
-User authentication (registration/login)
-
-Internship application form
-
-Database structure with foreign keys
-
-Admin panel with JOIN operations
-
-Pagination (5 records per page)
-
-Filters by role and experience
-
-Search by name or email
-
-SQL injection prevention
-
-Password hashing (no plain text)
-
-✅ Bonus Features
-Separate admin login
-
-User management (edit/delete/promote)
-
-Application status management (accept/reject)
-
-Bulk actions
-
-Modal interfaces
-
-AJAX operations
-
-Responsive design
-
-Bootstrap icons
-
-Setup verification script
 
 Comprehensive README
 
