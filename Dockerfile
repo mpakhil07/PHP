@@ -5,7 +5,7 @@ RUN a2dismod mpm_event || true \
  && a2dismod mpm_worker || true \
  && a2enmod mpm_prefork
 
-# Install system deps for PHP extensions
+# Install PHP MySQL extensions
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     unzip \
@@ -16,13 +16,15 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache rewrite
 RUN a2enmod rewrite
 
-# Set document root
-WORKDIR /var/www/html
+# Tell Apache to listen on Railway's port
+RUN sed -i 's/Listen 80/Listen 8080/' /etc/apache2/ports.conf \
+ && sed -i 's/:80/:8080/' /etc/apache2/sites-enabled/000-default.conf
 
-# Copy project files
+WORKDIR /var/www/html
 COPY . /var/www/html
 
-# Fix permissions
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 8080
+
+CMD ["apache2-foreground"]
