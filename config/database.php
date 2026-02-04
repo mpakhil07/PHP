@@ -11,7 +11,7 @@ class Database {
         // Railway environment variables (NO FALLBACKS)
         $this->host     = getenv("MYSQLHOST");
         $this->port     = getenv("MYSQLPORT");
-        $this->db_name  = getenv("MYSQL_DATABASE"); // ✅ CORRECT NAME
+        $this->db_name  = getenv("MYSQLDATABASE"); // ✅ CORRECT NAME
         $this->username = getenv("MYSQLUSER");
         $this->password = getenv("MYSQLPASSWORD");
     }
@@ -40,3 +40,4 @@ class Database {
     }
 }
 ?>
+
