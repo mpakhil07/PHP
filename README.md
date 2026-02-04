@@ -1,8 +1,11 @@
 Internship Portal - Complete Web Application
-📋 Project Overview
+
+📋 Project Overview 
+
 A full-featured web application for managing internship applications with separate user and admin panels. Built with pure PHP and MySQL without any frameworks.
 
-✨ Features
+✨ **Features**
+
 👤 User Features
 User Registration & Login - Secure authentication with password hashing
 
