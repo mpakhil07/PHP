@@ -1,29 +1,26 @@
 FROM php:8.2-apache
 
-# Disable conflicting MPMs (safety)
-RUN a2dismod mpm_event || true \
- && a2dismod mpm_worker || true \
- && a2enmod mpm_prefork
+# Install PDO MySQL
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
-# Install MySQL extensions
-RUN apt-get update && apt-get install -y \
-    libzip-dev \
-    unzip \
-    && docker-php-ext-install pdo pdo_mysql mysqli \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Enable rewrite
+# Enable Apache rewrite
 RUN a2enmod rewrite
 
-# Copy project
+# Configure Apache to use Railway PORT
+RUN sed -i 's/80/${PORT}/g' /etc/apache2/ports.conf \
+ && sed -i 's/:80/:${PORT}/g' /etc/apache2/sites-available/000-default.conf
+
+# Set working directory
 WORKDIR /var/www/html
+
+# Copy project files
 COPY . /var/www/html
+
+# Fix permissions
 RUN chown -R www-data:www-data /var/www/html
 
-# Railway PORT fix (CRITICAL)
-RUN sed -i 's/Listen 80/Listen ${PORT}/' /etc/apache2/ports.conf \
- && sed -i 's/:80/:${PORT}/' /etc/apache2/sites-enabled/000-default.conf
+# Expose Railway port
+EXPOSE ${PORT}
 
-# Start Apache in foreground
-CMD ["bash", "-c", "apache2-foreground"]
+# Start Apache
+CMD ["apache2-foreground"]
