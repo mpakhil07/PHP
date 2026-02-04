@@ -88,7 +88,7 @@ internship-portal/
 ```
 🗄️ Database Schema
 Users Table
-sql
+```
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
@@ -97,8 +97,9 @@ CREATE TABLE users (
     role ENUM('user', 'admin') DEFAULT 'user',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+```
 Applications Table
-sql
+```
 CREATE TABLE applications (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -111,6 +112,7 @@ CREATE TABLE applications (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+```
 🚀 Installation
 Prerequisites
 PHP 7.4 or higher
