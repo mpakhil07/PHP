@@ -136,11 +136,13 @@ Step 2: Configuration
 Edit config/database.php with your MySQL credentials:
 
 php
+```
 private $host = "localhost";
 private $port = "3306";
 private $db_name = "internship_portal";
 private $username = "root";
 private $password = ""; // Your MySQL password
+```
 Step 3: File Placement
 Place all files in your web server directory:
 
@@ -194,6 +196,7 @@ Pagination: 10 records per page
 🛠️ Technical Implementation
 JOIN Operations Example
 php
+```
 SELECT a.*, u.name, u.email 
 FROM applications a 
 INNER JOIN users u ON a.user_id = u.id
@@ -212,6 +215,7 @@ $stmt->bindParam(":name", $name);
 $stmt->bindParam(":email", $email);
 $stmt->bindParam(":password", $hashed_password);
 $stmt->execute();
+```
 🌐 Usage Guide
 As a Regular User
 Register for an account at /auth/register.php
