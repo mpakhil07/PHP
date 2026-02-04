@@ -8,20 +8,15 @@ class Database {
     public $conn;
 
     public function __construct() {
-        /**
-         * If Railway environment variables exist → use them
-         * Otherwise → fallback to localhost (XAMPP)
-         */
-        $this->host     = getenv("MYSQLHOST") ?: "localhost";
-        $this->port     = getenv("MYSQLPORT") ?: "3306";
-        $this->db_name  = getenv("MYSQLDATABASE") ?: "internship_portal";
-        $this->username = getenv("MYSQLUSER") ?: "root";
-        $this->password = getenv("MYSQLPASSWORD") ?: "Shadowfight9072@";
+        // Railway environment variables (NO FALLBACKS)
+        $this->host     = getenv("MYSQLHOST");
+        $this->port     = getenv("MYSQLPORT");
+        $this->db_name  = getenv("MYSQL_DATABASE"); // ✅ CORRECT NAME
+        $this->username = getenv("MYSQLUSER");
+        $this->password = getenv("MYSQLPASSWORD");
     }
 
     public function getConnection() {
-        $this->conn = null;
-
         try {
             $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->db_name};charset=utf8mb4";
 
@@ -36,12 +31,12 @@ class Database {
                 ]
             );
 
-        } catch (PDOException $exception) {
-            error_log("DB Connection Error: " . $exception->getMessage());
-            die("Database connection failed.");
-        }
+            return $this->conn;
 
-        return $this->conn;
+        } catch (PDOException $exception) {
+            echo "<pre>DB ERROR:\n" . $exception->getMessage() . "</pre>";
+            exit;
+        }
     }
 }
 ?>
