@@ -42,39 +42,50 @@ Access Control - Admin-only routes protected
 
 🗂️ Project Structure
 text
+```
 internship-portal/
-├── index.php                 # Home page
+│
+├── index.php                 # Homepage
+│
 ├── config/
-│   └── database.php         # Database configuration
-├── auth/                    # Authentication
-│   ├── register.php        # User registration
-│   ├── login.php           # User login
-│   ├── logout.php          # User logout
-│   ├── admin_login.php     # Admin login
-│   └── admin_logout.php    # Admin logout
-├── applications/           # User applications
-│   ├── apply.php          # Application form
-│   └── my_applications.php # View user's applications
-├── admin/                 # Admin panel
-│   ├── dashboard.php      # Admin dashboard
-│   ├── applications.php   # Manage applications (with JOINs, pagination, filters)
-│   ├── users.php          # Manage users
-│   ├── update_user.php    # Update user details
-│   ├── make_admin.php     # Promote user to admin
-│   ├── process_status.php # Update application status (AJAX)
-│   └── get_application.php # Get application details (AJAX)
-├── includes/              # Common includes
-│   ├── header.php        # Page header with navigation
-│   ├── footer.php        # Page footer
-│   ├── auth_check.php    # User authentication check
-│   └── admin_check.php   # Admin authentication check
-├── css/                  # Stylesheets
-│   └── style.css         # Custom CSS
-├── js/                   # JavaScript
-│   └── script.js         # Custom JavaScript
-├── setup.php            # Setup check script
-├── database.sql         # Database schema and sample data
-└── README.md           # This file
+│   └── database.php          # Database connection settings
+│
+├── auth/                     # Authentication files
+│   ├── register.php          # User registration
+│   ├── login.php             # User login
+│   ├── logout.php            # User logout
+│   ├── admin_login.php       # Admin login
+│   └── admin_logout.php      # Admin logout
+│
+├── applications/             # Internship applications
+│   ├── apply.php             # Apply for internship
+│   └── my_applications.php   # View user applications
+│
+├── admin/                    # Admin panel
+│   ├── dashboard.php         # Admin dashboard
+│   ├── applications.php      # View & manage applications
+│   ├── users.php             # Manage users
+│   ├── update_user.php       # Update user details
+│   ├── make_admin.php        # Promote user to admin
+│   ├── process_status.php    # Update application status (AJAX)
+│   └── get_application.php   # Fetch application details (AJAX)
+│
+├── includes/                 # Common reusable files
+│   ├── header.php            # Header & navigation
+│   ├── footer.php            # Footer
+│   ├── auth_check.php        # User authentication check
+│   └── admin_check.php       # Admin authentication check
+│
+├── css/
+│   └── style.css             # Custom styles
+│
+├── js/
+│   └── script.js             # Custom JavaScript
+│
+├── setup.php                 # Project setup verification
+├── database.sql              # Database schema & sample data
+└── README.md                 # Project documentation
+```
 🗄️ Database Schema
 Users Table
 sql
