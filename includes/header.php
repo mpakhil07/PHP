@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-define('BASE_URL','/internship-portal/');
+define('BASE_URL','/');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -97,4 +97,5 @@ define('BASE_URL','/internship-portal/');
             </div>
         </div>
     </nav>
+
     <div class="container mt-4">
